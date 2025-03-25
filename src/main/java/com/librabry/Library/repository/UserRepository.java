@@ -6,6 +6,7 @@ import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.List;
 
@@ -16,4 +17,5 @@ public interface UserRepository extends JpaRepository<User,Integer> {
 
     User findByPhoneNumberAndUserType(String phoneNumber, UserType userType);
 
+    User findByEmail(String email);
 }

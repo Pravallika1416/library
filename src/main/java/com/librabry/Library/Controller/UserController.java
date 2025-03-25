@@ -3,6 +3,7 @@ package com.librabry.Library.Controller;
 import com.librabry.Library.dto.UserRequest;
 import com.librabry.Library.model.User;
 import com.librabry.Library.service.UserService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
@@ -14,14 +15,19 @@ public class UserController {
     @Autowired
     private UserService userService;
 @PostMapping("/addStudent")
-    public User addStudent(@RequestBody UserRequest userRequest)
+    public User addStudent(@RequestBody @Valid UserRequest userRequest) // Add @Valid
 {
-return userService.addStudent(userRequest);
+
+    return userService.addStudent(userRequest);
 }
     @PostMapping("/addAdmin")
-    public User addAdmin(@RequestBody UserRequest userRequest)
+    public User addAdmin(@RequestBody  @Valid UserRequest userRequest)
     {
 return userService.addAdmin(userRequest);
+    }
+    @GetMapping("/getStudent")
+    public User getStudent(){
+return null;
     }
 
     @GetMapping("/filterUser")

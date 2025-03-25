@@ -17,8 +17,18 @@ public class UserRequest {
     private String phoneNo;
     private String email;
     private String address;
+    @NotBlank(message = "Pwd Number Should Not be Null")
+    private String password;
     public User toUser(){
-        return User.builder().name(this.userName).email(this.email).phoneNumber(this.phoneNo).address(this.address).userStatus(UserStatus.ACTIVE).build();
+        return User.builder().
+                name(this.userName).
+                email(this.email).
+                phoneNumber(this.phoneNo).
+                address(this.address).
+                password(this.password).
+                userStatus(UserStatus.ACTIVE).
+
+                build();
     }
 
 }
